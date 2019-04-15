@@ -391,6 +391,15 @@ a:hover, a:active, a:focus {
   padding: 22px 32px 32px 32px;
 }
 
+#about .about-img2 {
+    background: url('../images/about-img2.jpg') no-repeat;
+}
+
+#about .about-thumb,
+#about .skill-thumb {
+  padding: 22px 32px 32px 32px;
+}
+
 #about .progress {
   background: #ffffff;
   border-radius: 0px;
