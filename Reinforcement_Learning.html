@@ -13115,6 +13115,9 @@ div#notebook {
 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
+<div style="text-align: center;"><h1>MINYOUNG CHANG - REINFORCEMENT LEARNING</h1></div>
+<h2>Repository <a class="color-white" href="https://github.com/min0jang/ReinforcementLearning.git" target="_blank">https://github.com/min0jang/ReinforcementLearning.git</a></h2>
+<p> </p>
 <div style="text-align: center;"><iframe width="900" height="506" src="https://www.youtube.com/embed/piQjevcBO6c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="I.-ABSTRACT">I. ABSTRACT<a class="anchor-link" href="#I.-ABSTRACT">&#182;</a></h2><p>The goal of this project is to implement reinforcement learning for car control, in replacement of the traditional feedback control. Through the process of learning, the simulated car is designed to learn how to go toward right while getting as close as possible to the flag. The process of training and testing the neural network was done in simulation with python code, which included the rendering of the simulation that visualizes the process. After hundreds of training episodes, the model learned how to achieve the goal mentioned above.</p>
@@ -13147,12 +13150,9 @@ The major challenge of this project was on designing the environment, which incl
 The design of the penalty system also greatly influenced the result of the learning process. In this project, the goal has two parts: driving toward the flag, and driving close to the mid-lane. Penalty was assigned separately for each part, and the balance of the two parts was very important. For example, if the penalty for driving far from the mid-lane is too big compared to that for getting to the goal point fast, the learning process only focuses on driving near the mid-lane. In this case, the car did not really accelerated but only focused on getting to the mid-lane and stay there for a long period of time. On the other hand, when the penalty for getting to the goal point late was too big, the car was trained to simply accelerate as much as possible and go straight toward the right, without making any kind of steer toward the mid-lane. In this project, the ideal penalty system was found through many trials. 
 As a counterpart of the penalty system, a reward system was tried during the project. In the reward system was designed to reward the car when it makes an action that gets the car closer to the mid-lane. This system generated an interesting result: instead of driving toward the flag, the car started driving back and forth while facing downward, in an attempt to receive more rewards. As shown in this trial, a poorly designed penalty/reward system created meaningless results.</p>
 <h3 id="VI.-Future-Work">VI. Future Work<a class="anchor-link" href="#VI.-Future-Work">&#182;</a></h3><p>The next step of this project can be applying the trained model to the actual “duckiebot,” through ROS and replace the traditional PID controller. It is very important to design the specification of the simulated car to resemble that of the actual car. The maximum speed, maximum angular speed, rate of acceleration and steering are four the most important factors of the specification. The goal points — for the actual car— will be received from the code of the path-planning team. It will be very interesting to see how the model trained through simulation performs in reality.</p>
-<p>Repository: <a href="https://github.com/min0jang/ReinforcementLearning.git">https://github.com/min0jang/ReinforcementLearning.git</a></p>
-
 </div>
 </div>
 </div>
-
     </div>
   </div>
 </body>
