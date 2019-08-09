@@ -13124,6 +13124,7 @@ div#notebook {
 <h2 id="3.-System-Setup">3. RQT Graph<a class="anchor-link" href="#3.-System-Setup">&#182;</a></h2><p><img src="./slam_lidar_images/writeup_img2.png" alt="alt text"></p>
 <p>This diagram explains how the data from each component gets combined into a 3D map.</p>
 <h2 id="4.-Screen-Layout">4. Simplified RQT Graph<a class="anchor-link" href="#4.-Screen-Layout">&#182;</a></h2><p><img src="./slam_lidar_images/writeup_img3.png" alt="alt text"></p>
+    <p>Obviously, the system can be divided into 3 big components: Lidar, Jackal, and ZED. ZED Camera is added to the system for loop closure detection based on its RGBD image, but it did not improve the system very much. The mapping is basically done with the pose and odometry published from JACKAL with the point clouds published from Lidar. The RTAB-Map software integrates the data from two (or three including ZED) into a 3D map as shown in the demonstration video.</p>    
 <h2 id="5.-Feature-Detection-Algorithm">5. Feature Detection Algorithm<a class="anchor-link" href="#5.-Feature-Detection-Algorithm">&#182;</a></h2><p><img src="./slam_images/writeup_img6.png" alt="alt text"></p>
 <p>We decided to use 'SIFT': Scale-Invariant Feature Transform.
 A detailed introduction of the algorithm can be found here: <a href="https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_feature2d/py_sift_intro/py_sift_intro.html">https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_feature2d/py_sift_intro/py_sift_intro.html</a>.</p>
