@@ -13125,15 +13125,10 @@ div#notebook {
 <p>This diagram explains how the data from each component gets combined into a 3D map.</p>
 <h2 id="4.-Screen-Layout">4. Simplified RQT Graph<a class="anchor-link" href="#4.-Screen-Layout">&#182;</a></h2><p><img src="./slam_lidar_images/writeup_img3.png" alt="alt text"></p>
     <p>Obviously, the system can be divided into 3 big components: Lidar, Jackal, and ZED. ZED Camera is added to the system for loop closure detection based on its RGBD image, but it did not improve the system very much. The mapping is basically done with the pose and odometry published from JACKAL with the point clouds published from Lidar. The RTAB-Map software integrates the data from two (or three including ZED) into a 3D map as shown in the demonstration video.</p>    
-<h2 id="5.-Feature-Detection-Algorithm">5. Feature Detection Algorithm<a class="anchor-link" href="#5.-Feature-Detection-Algorithm">&#182;</a></h2><p><img src="./slam_images/writeup_img6.png" alt="alt text"></p>
-<p>We decided to use 'SIFT': Scale-Invariant Feature Transform.
-A detailed introduction of the algorithm can be found here: <a href="https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_feature2d/py_sift_intro/py_sift_intro.html">https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_feature2d/py_sift_intro/py_sift_intro.html</a>.</p>
-<p>Selection of a feature detection algorithm was important in this project. Based on the detected features, the captured images from ZED camera are connected to each other and get combined into a map. Also, after a loop around (360°), the loop-closure does not occur without enough features found in the images.</p>
-<p>There are many algorithms available which vary in the quality and speed. We tried FAST, SURF, and ORB, but SIFT worked the best in this project.</p>
-<h2 id="6.-Parameter-Tuning">6. Parameter Tuning<a class="anchor-link" href="#6.-Parameter-Tuning">&#182;</a></h2><p>There were many parameters from ZED Stereo Camera and RTAB-MAP launch files that had been tuned for sake of better quality in mapping process. The list of the parameters that had been tuned and the effects of the changes can be found here:</p>
+<h2 id="5.-Parameter-Tuning">6. Parameter Tuning<a class="anchor-link" href="#6.-Parameter-Tuning">&#182;</a></h2><p>There were many parameters from ZED Stereo Camera and RTAB-MAP launch files that had been tuned for sake of better quality in mapping process. The list of the parameters that had been tuned and the effects of the changes can be found here:</p>
 <p>"LINK-will be added soon"</p>
-<h2 id="7.-References">7. Mapped Area<a class="anchor-link" href="#7.-References">&#182;</a></h2><p><img src="./slam_lidar_images/writeup_img4.png" alt="alt text"></p>
-<h2 id="8.-References">8. References<a class="anchor-link" href="#7.-References">&#182;</a></h2>
+<h2 id="6.-References">7. Mapped Area<a class="anchor-link" href="#7.-References">&#182;</a></h2><p><img src="./slam_lidar_images/writeup_img4.png" alt="alt text"></p>
+<h2 id="7.-References">8. References<a class="anchor-link" href="#7.-References">&#182;</a></h2>
     <p><a href="http://wiki.ros.org/rtabmap_ros/Tutorials/HandHeldMapping">http://wiki.ros.org/rtabmap_ros/Tutorials/HandHeldMapping</a>
 <a href="https://github.com/introlab/rtabmap/wiki/Tutorials">https://github.com/introlab/rtabmap/wiki/Tutorials</a>
 <a href="http://wiki.ros.org/rtabmap_ros/Tutorials/SetupOnYourRobot">http://wiki.ros.org/rtabmap_ros/Tutorials/SetupOnYourRobot</a></p>
