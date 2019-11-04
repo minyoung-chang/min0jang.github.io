@@ -13119,8 +13119,9 @@ div#notebook {
 <center><h1>YOLO Object Detection + ZED Stereo Camera</h1>
 <i> Suzie Petryk, Joe Nechleba, MinYoung Chang </i></center>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/5_UFejnQXTY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <p>This project was done as a part of AI-DO (Artificial Intelligence Driving Olympics) by duckietown: <a href="https://www.duckietown.org/research/ai-driving-olympics" target="_blank">https://www.duckietown.org/research/ai-driving-olympics</a></p>
+    <p>This project is an extension of what was done as a part of AI-DO (Artificial Intelligence Driving Olympics) by duckietown: <a href="https://www.duckietown.org/research/ai-driving-olympics" target="_blank">https://www.duckietown.org/research/ai-driving-olympics</a> Suzie Petryk and Joe Nechleba did the training YOLO, and I implemented the model to ZED Camera for depth sensing.</p>
 <hr>
+<!--
 <h2 id="YOLO-Object-Detection---DarkNet">YOLO Object Detection - DarkNet<a class="anchor-link" href="#YOLO-Object-Detection---DarkNet">&#182;</a></h2><p>You only look once (YOLO) is a real-time object detection system, developed by Joseph Redmon. Papers and more detailed explanations can be found at his website, <a href="https://pjreddie.com/darknet/yolo/" target="_blank">https://pjreddie.com/darknet/yolo/</a>.</p>
 <p><img src="./yolo_writeup_images/writeup_img1.png" alt="alt text"></p>
 <p>He introduces the system as following :</p>
@@ -13135,6 +13136,7 @@ div#notebook {
 <h3 id="Limitation">Limitation<a class="anchor-link" href="#Limitation">&#182;</a></h3><p>There were certain circumstances where the model failed to recognize duckies and duckiebots, and we believe this may be solved with more training dataset specifically for these cases.</p>
 <p><img src="./yolo_writeup_images/writeup_img3.png" alt="alt text"></p>
 <hr>
+-->
 <h2 id="Integration-with-ZED-Camera">Integration with ZED Camera<a class="anchor-link" href="#Integration-with-ZED-Camera">&#182;</a></h2><p>I found the result of the project above very interesting, and decided to implement it for ZED Stereo Camera that is connected with JACKAL CLEARPATH. The real-time object detection of YOLO makes a great synergy with the ZED Stereo Camera, whcih outputs the real-time position of camera, depth map, and path trajectory. Implementing the feature to the system could be a great asset for Cornell Autonomous Systems Lab.</p>
 <p><img src="./yolo_writeup_images/writeup_img4.png" alt="alt text"></p>
 <h2 id="Depth-Calculation">Depth Calculation<a class="anchor-link" href="#Depth-Calculation">&#182;</a></h2><p>As shown in the video above, ZED generates a depth map based on the measured distance of each pixel. Since the depth map is generated in the same image format as ordinary image format, it is very easy to find out the distance between the camera and an object detected in an image. Following is the video of pre-trained yolo model ran in ZED Stereo Camera.</p>
