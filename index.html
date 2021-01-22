@@ -1,364 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!doctype html>
 
-  <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  
-  <title>Min Young Chang</title>
-  <meta name="description" content="Personal Website">
-  <meta name="author" content="MinYoung Chang">
-
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<head>
+  <title>Your title</title>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="./csss" rel="stylesheet" type="text/csss">
+<style>
+  .pred-container {
+    margin-bottom: 20px;
+  }
 
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="./normalize.css">
-  <link rel="stylesheet" href="./skeleton.css">
-  <link rel="stylesheet" href="./custom.css">
-  <link rel="stylesheet" href="./social-circles.min.css">
+  .pred-container > div {
+    display: inline-block;
+    margin-right: 20px;
+    vertical-align: top;
+  }
 
+  .row {
+    display: table-row;
+  }
+  .cell {
+    display: table-cell;
+    padding-right: 20px;
+  }
 
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="SHORTCUT ICON" href="/images/shortcut.jpg"/>
-  <link rel="apple-touch-icon" href="favicon_apple.ico"/>
-	
-	</head>	
+  #file-container {
+    margin-bottom: 20px;
+  }
+</style>
 
-  <!-- Primary Page Layout
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 <body>
- <div class="navbar-spacer"></div>
-    <nav class="navbar">
-      <div class="container">
-        <ul class="navbar-list">
-          <li class="navbar-item"><a class="navbar-link" href="#about">About</a></li>
-          <li class="navbar-item"><a class="navbar-link" href="#publication">Publication</a></li>
-          <li class="navbar-item"><a class="navbar-link" href="#projects">Past Works</a></li>
-          <li class="navbar-item"><a class="navbar-link" href="#experience">Experience</a></li>
-          <li class="navbar-item"><a class="navbar-link" href="#resume">Contacts</a></li>
-        </ul>
+  <div class="tfjs-example-container">
+    <section class='title-area'>
+      <h1>TensorFlow.js: Using a Keras model in the browser</h1>
+    </section>
+
+    <section>
+      <p class='section-head'>Description</p>
+      <p>
+        This file is based on <a>https://github.com/tensorflow/tfjs-examples/tree/master/mobilenet</a>.
+      </p>
+    </section>
+
+    <section>
+      <p class='section-head'>Status</p>
+      <div id="status"></div>
+    </section>
+
+    <section>
+      <p class='section-head'>Model Output</p>
+
+      <div id="file-container" style="display: none">
+        Upload an image: <input type="file" id="files" name="files[]" multiple />
       </div>
-    </nav>
 
+      <div id="predictions"></div>
 
-  <div class="container">
-    <div class="row" id="about">
-      <div class="one-half column" style="margin-top: 8.0%">
-        <img class="bio-image" src="images/profile.jpg" alt="">
-      </div>
-      <div class="one-half column" style="margin-top: 4.5%">
-	    <br>
-        <h2>Min Young Chang</h2>
-        <p>M.S. Computer Science, Columbia University '21 <br>
-	   B.S. Mechanical Engineering, Cornell University '19<br>
-	<a href="https://clova.ai/en/research/research-areas.html/" target="_blank">Clova AI</a><br>
-	<a href="https://www.naverlabs.com/en/" target="_blank">NAVER LABS</a><br>
-	<a href="http://cornell-asl.org/main/index.html" target="_blank">Cornell Autonomous Systems Lab</a><br>
-	<a href="https://minyoung.info/army.html" target="_blank" style="margin-bottom: 0; margin: 0">ROK Army Special Forces</a><br>
-	<hr style="margin-top: 0px; margin-bottom: 5px"> </hr>
-	<a class="color-white" href="/documents/Resume.pdf" target="_blank">[Resume]</a>
-		<a href="https://scholar.google.com/citations?user=ew_o51AAAAAJ&hl=en">[Google Scholar]</a>
-		<a href="https://www.linkedin.com/in/minyoung-chang/" target="_blank">[LinkedIn]</a>
-		<a href="https://www.youtube.com/channel/UCsyM1tDA-hsWIVsYB43o4rA?view_as=subscriber/" target="_blank">[YouTube]</a></p>
-      </div>
-    </div>
+      <img style="display: none" id="cat" src="cat.jpg" width=192 height=192 />
+    </section>
 
-    <div class="row" style="margin-top: 3.5%">
-      <p> 
-	   <!--I am a Graduate Student at Columbia University with a privilege to be advised by Professor <a href="https://www.cs.columbia.edu/~shurans/index.html" target="_blank">Shuran Song</a>.--> My fields of interest are robotic perception and 3D computer vision. I have done various related projects using LiDAR sensors and stereo cameras. 
-	  I also served in the Republic of Korea Army for two years, during which I was deployed to Arab Emirates for eight months as a part of the Army Special Forces.</p>
-    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
+    <script src="index.js"></script>
   </div>
-
-
-  <!-- Publication
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
-  <div class="container">
-
-    <div class="row" style="margin-top: 2%" id="publication">
-      <h4>Publication</h4>
-    </div>
-
-			
-    <div class="row">
-        <div class="five columns" style="margin-top: 2%">
-		    <img class="paper-image" src="gifs/spoxelnet.gif" alt="">
-        </div>
-        <div class="seven columns" style="margin-top: 2%">
-			<p>
-			  <b>SpoxelNet: Spherical Voxel-based Deep Place Recognition for 3D PointClouds of a Crowded Indoor Space</b><br>
-			  <b>Min Young Chang</b>, Suyong Yeon, Soohyun Ryu, and Donghwan Lee<br/>
-				<!--<a href="https://docs.google.com/presentation/d/1Ouvo58Wff6p7a5ZiHa0dgcNhZoeCx8DYPbjJ6ad-3Ew/edit#slide=id.g81a40417dd_0_223" target="_blank">[slides]</a>-->
-			  <em>IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2020. Las Vegas, USA.</em><br>
-			  <a href="https://youtu.be/TOiCO6Vx1gQ">[presentation_video]</a>
-			  <a href="http://ras.papercept.net/images/temp/IROS/files/0317.pdf">[paper]</a><br>
-			</p>
-		</div>
-    </div>
-  </div>
-  <!-- Past Works
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
-  <div class="container">
-
-    <div class="row" style="margin-top: 7.5%" id="projects">
-      <h4>Past Works</h4>
-    </div>
-
-			
-    <div class="row">
-        <div class="five columns" style="margin-top: 2%">
-		    <img class="paper-image" src="gifs/m1.gif" alt="">
-        </div>
-        <div class="seven columns" style="margin-top: 2%">
-			<p>
-			  <b>Point Cloud based Place Recognition in Crowded Indoor Spaces</b><br>
-			  <em>at NAVER LABS</em><br/>
-				<a href="https://www.naverlabs.com/en/storyDetail/24" target="_blank">[website]</a>
-				<a href="https://www.youtube.com/watch?v=EuCGRnzfHh8" target="_blank">[youtube]</a><br/>
-			  Place recognition & loop closure detection algorithm for an indoor mapping robot with VLP-16 LiDAR sensors<br>
-			  #perception #slam #python #tensorflow #3d
-			</p>
-		</div>
-    </div>
-			
-    <div class="row">
-        <div class="five columns" style="margin-top: 2%">
-		    <img class="paper-image" src="gifs/slam_lidar.gif" alt="">
-        </div>
-        <div class="seven columns" style="margin-top: 2%">
-			<p>
-			  <b>3D SLAM - LIDAR</b><br>
-			  <em>with Andy Choi, Brian Wang, and Sarah Allen</em><br/>
-				<a href="slam_lidar.html" target="_blank">[write up]</a>
-				<a class="color-white" href="/documents/3d_mapping_lidar.pptx" download>[pptx]</a>
-				<a href="https://www.youtube.com/watch?v=U0f8s8dsqsI" target="_blank">[youtube]</a><br/>
-			  Real-time three-dimensional simultaneous localization and mapping with a LIDAR, and JACKAL.<br>
-			  #slam #ros #c++ #3d
-			</p>
-		</div>
-    </div>
-
-    <div class="row">
-        <div class="five columns" style="margin-top: 2%">
-		    <img class="paper-image" src="gifs/slam.gif" alt="">
-        </div>
-        <div class="seven columns" style="margin-top: 2%">
-			<p>
-			  <b>3D SLAM - ZED Stereo Camera</b><br>
-			  <em>with Andy Choi, Brian Wang, and Sarah Allen</em><br/>
-				<a href="slam.html" target="_blank">[write up]</a>
-				<a class="color-white" href="/documents/rtabmap-3dmapping.pptx" download>[pptx]</a>
-				<a href="https://www.youtube.com/watch?v=E7lwgzlFq08" target="_blank">[youtube]</a><br/>
-			  Real-time three-dimensional simultaneous localization and mapping with a ZED stereo camera and JACKAL.<br>
-			  #slam #ros #c++ #3d
-			</p>
-		</div>
-    </div>
-
-
-  	  
-    <div class="row">
-        <div class="five columns" style="margin-top: 2%">
-		    <img class="paper-image" src="gifs/reinforcement_learning.gif" alt="">
-        </div>
-        <div class="seven columns" style="margin-top: 2%">
-			<p>
-			  <b>Reinforcement Learning for Driving a Miniature Car</b><br>
-			  <em>with Scott Hamil, and Adam Pacheck</em><br/>
-			  	<a href="Reinforcement_Learning.html" target="_blank">[write up]</a>
-				<a class="color-white" href="/documents/reinforcement_learning.pptx" download>[pptx]</a>
-				<a class="color-white" href="/documents/AIDO_report_Spring_2019_MinYoungChang.docx" download>[docx]</a>
-				<a href="https://github.com/min0jang/ReinforcementLearning" target="_blank">[github]</a>
-				<a href="https://www.youtube.com/watch?v=piQjevcBO6c" target="_blank">[youtube]</a><br/>
-			  Using TensorFlow to simulate a reinforcement learning process of a self-driving car.<br>
-			  #control #deep_learning #python #tensorflow #reinforcement_learning
-			</p>
-		</div>
-    </div>
-	  
-    <div class="row">
-        <div class="five columns" style="margin-top: 2%">
-		    <img class="paper-image" src="gifs/yolo.gif" alt="">
-        </div>
-        <div class="seven columns" style="margin-top: 2%">
-			<p>
-			  <b>Real-time Object Detection with Depth Measurement</b><br>
-			  <em>with Suzie Petryk, and Joe Nechleba</em><br/>
-			  <a href="yolo.html" target="_blank">[write up]</a>
-			  <a class="color-white" href="/documents/yolo_report.pdf" download>[report]</a>
-			  <a href="https://www.youtube.com/watch?v=5_UFejnQXTY" target="_blank">[youtube]</a><br/>
-			  Using YOLO in tensorflow, ZED camera to track and follow an object.<br>
-			  #computer_vision #machine_learning #ros #python #tensorflow
-			</p>
-		</div>
-    </div>
-
-    <div class="row">
-        <div class="five columns" style="margin-top: 2%">
-		    <img class="paper-image" src="gifs/sensor_fusion.gif" alt="">
-        </div>
-        <div class="seven columns" style="margin-top: 2%">
-			<p>
-			  <b>Sensor Fusion Simulation</b><br>
-				<a href="kalman_filter.html" target="_blank">[write up]</a>
-				<a href="https://www.youtube.com/watch?v=H4N5ZZzWDXU" target="_blank">[youtube]</a>
-				<a href="https://github.com/min0jang/Kalman_Filter" target="_blank">[github]</a><br/>
-			  Tracking position and velocity of a simulated bike with Lidar and Radar measurement processed by Kalman Filter built in C++ code, and visualizing through python.<br>
-			  #c++ #kalman_filter #python
-			</p>
-		</div>
-    </div>
-	  
-    <div class="row">
-        <div class="five columns" style="margin-top: 2%">
-		    <img class="paper-image" src="gifs/lane_detection.gif" alt="">
-        </div>
-        <div class="seven columns" style="margin-top: 2%">
-			<p>
-			  <b>Lane Detection</b><br>
-			  <a href="lane_detection.html" target="_blank">[write up]</a>
-			  <a href="https://github.com/min0jang/Lane_Detection" target="_blank">[github]</a>
-			  <a href="https://www.youtube.com/watch?v=H8YNSh2o6rw" target="_blank">[youtube]</a><br/>
-			  Detecting lane pixels in photos taken from a camera of a self-driving car.<br>
-			  #computer_vision #python #open_cv
-			</p>
-		</div>
-    </div>
-    <div class="row">
-        <div class="five columns" style="margin-top: 2%">
-		    <img class="paper-image" src="gifs/traffic2.gif" alt="">
-        </div>
-        <div class="seven columns" style="margin-top: 2%">
-			<p>
-			  <b>Traffic Sign Classifier</b><br>
-			  <a href="traffic.html" target="_blank">[write up]</a>
-			  <a href="https://github.com/min0jang/traffic_sign_classifier" target="_blank">[github]</a><br/>
-			  Using TensorFlow to build a model that identifies actual traffic signs on the road.<br>
-			  #computer_vision #machine_learning #python #tensorflow
-			</p>
-		</div>
-    </div>
-
-<!--
-	  
-    <div class="row">
-        <div class="five columns" style="margin-top: 2%">
-		    <img class="paper-image" src="gifs/catdog.png" alt="">
-        </div>
-        <div class="seven columns" style="margin-top: 2%">
-			<p>
-			  <b>Cat / Dog Image Classification</b><br>
-			  <a href="image_identification.html" target="_blank">[write up]</a>
-			  <a href="https://github.com/min0jang/image-identification" target="_blank">[github]</a><br/>
-			  Identifying a dog or a cat in the image through keras, a Deep Learning module in python.<br>
-			  #computer_vision #machine_learning #python #keras
-			</p>
-		</div>
-    </div>
-	  
-    <div class="row">
-        <div class="five columns" style="margin-top: 2%">
-		    <img class="paper-image" src="gifs/bike.png" alt="">
-        </div>
-        <div class="seven columns" style="margin-top: 2%">
-			<p>
-			  <b>Bike Sharing Demand Prediction @ kaggle.com</b><br>
-			  <a href="data_processing.html" target="_blank">[write up]</a>
-			  <a href="https://github.com/min0jang/bike_sharing_demand" target="_blank">[github]</a><br/>
-			  Processing Big Data through python and generating anticipations for the set of data.<br>
-			  #python #pandas
-			</p>
-		</div>
-    </div>	
--->
-  </div>
-  
-  <!-- Experience
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
-  <div class="container">
-    <div class="row" style="margin-top: 7.5%" id="experience">
-      <h4>Experience</h4>
-	    	  
-    <div class="row">
-        <div class="five columns" style="margin-top: 2%">
-		    <img class="paper-image" src="images/clova-img.jpg" alt="">
-        </div>
-        <div class="seven columns" style="margin-top: 2%">
-			<p>
-			  <b>Graduate Student Intern at Clova AI</b><br>
-			  May 2020 - Aug 2020 <br>
-			  <em>Seongnam, Korea</em><br/>
-			  Implemented a deep learning-based lane detection algorithm. Achieved 93.5% recall rate and 97.8% precision rate for road images with high traffic. Managed a data annotation team for labeling a large complicated Korean road data set. <br>
-			</p>
-		</div>
-    </div>	
-	    	  
-    <div class="row">
-        <div class="five columns" style="margin-top: 2%">
-		    <img class="paper-image" src="images/labs-img.jpg" alt="">
-        </div>
-        <div class="seven columns" style="margin-top: 2%">
-			<p>
-			  <b>Graduate Student Intern at NAVER LABS</b><br>
-			  Sep 2019 - Apr 2020 <br>
-			  <em>Seongnam, Korea</em><br/>
-
-			  The first author of "SpoxelNet: Spherical Voxel-based Deep Place Recognition for 3D Point Clouds of Crowded Indoor Spaces" (IEEE/RSJ IROS 2020). 
-			  Preprocessed large, messy 3D point cloud data of VLP-16 LiDAR sensors. 
-			  Developed an algorithm that rapidly removes moving objects in 3D point clouds <br>
-			</p>
-		</div>
-    </div>	
-	    	  
-    <div class="row">
-        <div class="five columns" style="margin-top: 2%">
-		    <img class="paper-image" src="army_images/writeup_img1.png" alt="">
-        </div>
-        <div class="seven columns" style="margin-top: 2%">
-			<p>
-			  <b>ROK Army Special Forces in Arab Emirates</b><br>
-			  Mar 2017 - Nov 2017 <br>
-			  <em>AKH Unit, Zayed Military City, UAE</em><br/>
-        <a class="project-link" href="army.html" target="_blank">[missions]</a>
-        <a class="project-link" href="army.html" target="_blank">[photos]</a><br>
-			  Combined special warfare exercises with UAE Special Forces, Combined counter-terrorism exercises with UAE Underwater Demolition Team(UDT), and external relations with UAE Ministry of Defense and Special Operations Command.
-			</p>
-		</div>
-    </div>	
-    </div>
-   </div>
-	
-  <!-- Contacts
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <div class="container">
-
-    <div class="row" style="margin-top: 2%" id="resume">
-	    <div class="twelve columns" style="margin-top: 2%">
-		<hr style="margin-top: 0px; margin-bottom: 5px"> </hr>
-		<h4>Contacts</h4>
-		<p>Email: mc4962[at]columbia[dot]edu <br>
-		   New York, NY</p>
-	    </div>
-	</div>
-	
-  </div>	
-
-<br>
-<br>
-<!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
-
-</body></html>
+</body>
