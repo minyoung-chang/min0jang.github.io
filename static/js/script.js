@@ -151,8 +151,6 @@ function dealerLogic() {
             break;
         }   
     }
-    
-    blackjackDeal();
 }
 
 function computeWinner() {
