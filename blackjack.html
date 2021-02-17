@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Blackjack Simulator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="static/css/style.css">
+        <style>
+            body {
+            font-family: Arial, Helvetica, sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container-5">
+            <h2>Blackjack</h2>
+            <h3><span id="blackjack-result">Let's play</span></h3>
+
+            <div class="flex-blackjack-row-1">
+                <div id="your-box">
+                    <h2>You: <span id="your-blackjack-result">0</span></h2>
+                </div>
+
+                <div id="dealer-box">
+                    <h2>Dealer: <span id="dealer-blackjack-result">0</span></h2>
+                </div>
+            </div>
+
+            <div class="flex-blackjack-row-2">
+                <div>
+                    <button class="btn btn-primary mr-2" id="blackjack-hit-button">Hit</button>
+                    <button class="btn btn-warning mr-2" id="blackjack-stand-button">Stand</button>
+                    <button class="btn btn-danger mr-2" id="blackjack-deal-button">Deal</button>
+                </div>
+            </div>
+            <div class="flex-blackjack-row-2">
+                <h4>Count: <span id="blackjack-count">0</span></h4>
+                <h4>Table is <span id="blackjack-table-status">Cold</span></h4>
+                <h4>Cards Left: <span id="blackjack-cards-left">52</span></h4>
+            </div>
+
+            
+    
+            <div class="flex-blackjack-row-3">
+                <table style="border: 1px solid black;">
+                    <tr>
+                        <th>Wins</th>
+                        <th>Losses</th>
+                        <th>Draws</th>
+                    </tr>
+                    <tr>
+                        <th><span id="wins">0</span></th>
+                        <th><span id="losses">0</span></th>
+                        <th><span id="draws">0</span></th>
+                    </tr> 
+                </table>
+            </div>
+
+            <div class="flex-blackjack-row-3">
+                <button class="btn btn-success mr-2" id="blackjack-reset-button">Reset</button>
+            </div>
+        </div>
+
+        
+
+        <script src="static/js/script.js"></script>
+
+    </body>
+</html>
